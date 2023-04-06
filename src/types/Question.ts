@@ -1,14 +1,13 @@
 import Answer from "./Answer";
-import User from "./User";
+import UserType from "./User";
 
-type Question = {
-  id: number;
+type QuestionType = {
+  id?: any;
   title: string;
   category: string;
-  user: User | null;
+  user?: UserType | null;
   answers: Answer[];
-  level: string | null;
-  isPublic: boolean;
+  level?: string | null;
 };
 
-export default Question;
+export default QuestionType;

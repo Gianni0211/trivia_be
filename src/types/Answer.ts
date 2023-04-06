@@ -1,8 +1,7 @@
-import AnwerField from "./AnswerField";
-
-type Answer = {
-  id: number;
-  answerFields: AnwerField[];
+type AnswerType = {
+  id?: number;
+  number?: number;
+  title: string;
 };
 
-export default Answer;
+export default AnswerType;

@@ -1,10 +1,10 @@
-import User from "./User";
+import UserType from "./User";
 
-type Player = {
-  name: User["userName"] | string;
+type PlayerType = {
+  name: UserType["userName"] | string;
   avatar: string;
   score: number;
   isUSer: boolean;
 };
 
-export default Player;
+export default PlayerType;

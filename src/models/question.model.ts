@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
+const questionSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, "Inserire il titolo"],
@@ -24,12 +24,8 @@ const userSchema = new mongoose.Schema({
     required: [false],
     default: "",
   },
-  isPublic: {
-    type: Boolean,
-    required: [true],
-  },
 });
 
-const Question = mongoose.model("User", userSchema);
+const Question = mongoose.model("Question", questionSchema);
 
 export default Question;

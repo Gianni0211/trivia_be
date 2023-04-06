@@ -1,9 +1,9 @@
 import Question from "./Question";
 
-type User = {
-  id: number;
+type UserType = {
+  id?: any;
   userName: string;
   password: string;
-  questions: Question[];
+  questions?: Question[];
 };
-export default User;
+export default UserType;

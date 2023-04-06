@@ -1,13 +1,13 @@
-import UserType from "../types/User";
-import User from "../models/user.model";
+import QuizType from "../types/Quiz";
+import Quiz from "../models/quiz.model";
 
 import * as express from "express";
 
 const get = async (req: express.Request, res: express.Response) => {
   try {
     const { id } = req.params;
-    const user: UserType = await User.findById(id);
-    res.status(200).json(user);
+    const quiz: QuizType = await Quiz.findById(id);
+    res.status(200).json(quiz);
   } catch (error) {
     // tslint:disable-next-line:no-console
     console.log(error);
@@ -17,8 +17,8 @@ const get = async (req: express.Request, res: express.Response) => {
 
 const post = async (req: express.Request, res: express.Response) => {
   try {
-    const user: UserType = await User.create(req.body);
-    res.status(200).json(user);
+    const quiz: QuizType = await Quiz.create(req.body);
+    res.status(200).json(quiz);
   } catch (error) {
     // tslint:disable-next-line:no-console
     console.log(error);
@@ -29,12 +29,12 @@ const post = async (req: express.Request, res: express.Response) => {
 const put = async (req: express.Request, res: express.Response) => {
   try {
     const { id } = req.params;
-    const user: UserType = await User.findByIdAndUpdate(id, req.body);
-    if (!user) {
-      res.status(404).json({ message: "Couldn't find User with id: " + id });
+    const quiz: QuizType = await Quiz.findByIdAndUpdate(id, req.body);
+    if (!quiz) {
+      res.status(404).json({ message: "Couldn't find Quiz with id: " + id });
     }
-    const updatedUser = await User.findById(id);
-    res.status(200).json(updatedUser);
+    const updatedQuiz = await Quiz.findById(id);
+    res.status(200).json(updatedQuiz);
   } catch (error) {
     // tslint:disable-next-line:no-console
     console.log(error);
@@ -42,15 +42,15 @@ const put = async (req: express.Request, res: express.Response) => {
   }
 };
 
-const deleteUser = async (req: express.Request, res: express.Response) => {
+const deleteQuiz = async (req: express.Request, res: express.Response) => {
   try {
     const { id } = req.params;
-    const user: UserType = await User.findByIdAndDelete(id);
-    if (!user) {
-      res.status(404).json({ message: "Couldn't find User with id: " + id });
+    const quiz: QuizType = await Quiz.findByIdAndDelete(id);
+    if (!quiz) {
+      res.status(404).json({ message: "Couldn't find Quiz with id: " + id });
     }
 
-    res.status(200).json(user);
+    res.status(200).json(quiz);
   } catch (error) {
     // tslint:disable-next-line:no-console
     console.log(error);
@@ -61,5 +61,5 @@ export default {
   get,
   post,
   put,
-  deleteUser,
+  deleteQuiz,
 };
