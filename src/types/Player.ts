@@ -6,3 +6,5 @@ type Player = {
   score: number;
   isUSer: boolean;
 };
+
+export default Player;
